@@ -1,0 +1,787 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-family: verdana;
+    margin-bottom: 25px;
+}
+
+header {
+    width: 100%;
+    min-height: 110px;
+    overflow: auto;
+    background-color: #1a237e;
+    position: fixed;
+    z-index: 2;
+}
+
+#headerCaixa {
+    width: 1300px;
+    height: inherit;
+    margin: 0 auto;
+}
+
+.headerLogo {
+    height: 100px;
+    width: 150px;
+    margin-left: 5px;
+    float: left;
+    text-align: center;
+    color: #ffffff;
+    font-size: 22px;
+    font-family: verdana;
+}
+
+.headerLogo img {
+    width: 100px;
+    height: 100px;
+}
+
+nav {
+    height: 60px;
+    width: 500px;
+    float: left;
+    margin-left: 75px;
+    margin-top: 10px;
+    padding-top: 30px;
+}
+
+#menu {
+    width: inherit;
+    height: inherit;
+}
+
+.menuItens {
+    width: 125px;
+    height: inherit;
+    float: left;
+    margin-left: 30px;
+    list-style: none;
+    text-align: center;
+    padding-top: 20px;
+    color: #ffffff;
+    font-family: verdana;
+    /* background-color: #fff; */
+}
+
+.menuItens a:link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menuItens:hover {
+    background-color: #fff;
+    color: #000;
+    transition: all 0.6s;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.menuItens:active {
+    background-color: #534bae;
+    transition: all 0.2s;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.menuItens:hover>a {
+    color: #000;
+    transition: all 0.6s;
+}
+
+.menuItens:active>a {
+    color: #fff;
+    transition: all 0.6s;
+}
+
+#loginCaixa {
+    width: 450px;
+    height: 75px;
+    float: right;
+    margin-top: 20px;
+}
+
+.campos {
+    float: left;
+    width: 150px;
+    height: inherit;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-family: verdana;
+    font-weight: 300;
+    color: #ffffff;
+    font-family: verdana;
+}
+
+.campos input {
+    width: inherit;
+    height: 35px;
+    font-family: verdana;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#btnLogin {
+    width: 45px;
+    height: 35px;
+    margin-left: 10px;
+    margin-top: 28px;
+    font-family: verdana;
+    color: #ffffff;
+    background-color: #000051;
+    border: solid #000051 1px;
+}
+
+#btnLogin:hover {
+    color: white;
+    background-color: #534bae;
+    border: solid #534bae 1px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.conteudo {
+    width: 100%;
+    min-height: 400px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+#sliderCaixa {
+    width: 1300px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 120px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+#sliderConteudo {
+    justify-content: space-between;
+    width: 1100px;
+    height: 500px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sliderImage {
+    width: 1100px;
+    height: inherit;
+    float: left;
+    transition: all 0.5s;
+}
+
+.sliderImage:first-child {
+    margin-left: -100%;
+}
+
+.sliderImage img {
+    width: inherit;
+    height: inherit;
+}
+
+#slider {
+    width: 1100px;
+    height: inherit;
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0px 0px 1px 0px black;
+}
+
+.arrow {
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    color: #000000;
+    user-select: none;
+    z-index: 1;
+}
+
+.arrow:hover {
+    color: white;
+    background-color: #1a237e;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.arrow:active {
+    background-color: #534bae;
+    transition: all 0.1s;
+}
+
+#redeSociais {
+    width: 100px;
+    height: 350px;
+    float: right;
+    position: fixed;
+    margin-left: 1200px;
+}
+
+#redeSociais div {
+    width: 100%;
+    height: 100px;
+    margin-top: 15px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#redeSociais div:hover {
+    background-color: #534bae;
+    border-radius: 50px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+#redeSociais div:active {
+    background-color: #1a237e;
+    transition: all 0.2s;
+}
+
+#redeSociais div img {
+    width: 90px;
+    height: 90px;
+}
+
+#conteudoCaixa {
+    width: 1100px;
+    min-height: 750px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#listaConteudo {
+    min-height: inherit;
+    overflow: hidden;
+    width: 250px;
+    float: left;
+    background-color: #fff;
+    box-shadow: 0px 0px 1px 0px black;
+}
+
+#listaConteudo ul li {
+    width: 100%;
+    height: 40px;
+    font-size: 22px;
+    box-shadow: 0px 1px 0px 0px black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 10px;
+}
+
+.subMenu {
+    visibility: hidden;
+    height: 0px;
+    opacity: 0;
+}
+
+#listaConteudo ul li:hover>.subMenu {
+    height: 300px;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.caixa {
+    width: 300px;
+    height: 40px;
+    font-size: 22px;
+    box-shadow: 0px 1px 0px 0px black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 10px;
+    background-color: #000;
+    margin-left: 250px;
+}
+
+#listaConteudo ul li:hover {
+    background-color: #000051;
+    color: #fff;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+#caixaItens {
+    width: 750px;
+    min-height: 700px;
+    float: left;
+    text-align: center;
+    font-size: 24px;
+}
+
+#caixaBarraPesquisa {
+    width: 100%;
+    height: 60px;
+    margin-top: 15px;
+    font-family: verdana;
+}
+
+#caixaItens input[type="text"] {
+    width: 450px;
+    height: 50px;
+    font-size: 28px;
+    border: #000 solid 0px;
+    box-shadow: 0px 0px 1px 0px black;
+}
+
+#caixaItens input[type="submit"] {
+    width: 100px;
+    height: 40px;
+    background-color: #1a237e;
+    color: #ffffff;
+    box-shadow: 0px 0px 1px 0px black;
+    font-size: 18px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#caixaItens input[type="submit"]:hover {
+    width: 101px;
+    height: 41px;
+    background-color: #534bae;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+#itensEncontrados {
+    float: left;
+    margin-left: 25px;
+    font-family: verdana;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+#itensCaixaPrincipal {
+    width: 850px;
+    min-height: 600px;
+    overflow: auto;
+    clear: both;
+}
+
+.itens {
+    width: 250px;
+    height: 300px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    float: left;
+    background-color: #fff;
+    box-shadow: 0px 0px 1px 0px black;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.itemImagem {
+    width: 200px;
+    height: 150px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.itemImagem img {
+    width: inherit;
+    height: inherit;
+}
+
+.itens li {
+    list-style: inside;
+    list-style: none;
+    text-align: left;
+    font-size: 15px;
+    margin-left: 10px;
+    font-family: verdana;
+    margin-top: 2px;
+}
+
+.saibaMais {
+    background-color: #1a237e;
+    color: #fff;
+    width: 125px;
+    height: 40px;
+    font-family: verdana;
+    box-shadow: 1px 1px 1px 0px black;
+    margin: 0 auto;
+    font-size: 18px;
+    padding-top: 5px;
+    margin-top: 5px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.saibaMais:hover {
+    width: 126px;
+    height: 41px;
+    background-color: #534bae;
+    transition: all 0.2s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.saibaMais:active {
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+#linha2 {
+    width: 1100px;
+    min-height: 400px;
+    overflow: hidden;
+    /* background-color: forestgreen; */
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+#linha2 div {
+    width: 850px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 25px;
+    font-size: 24px;
+    font-family: verdana;
+    text-align: justify;
+}
+
+#produtosEmDestaque {
+    width: 1100px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.itensDestaque {
+    width: 245px;
+    height: 400px;
+    margin-right: 25px;
+    margin-top: 25px;
+    float: left;
+    background-color: #fff;
+    box-shadow: 0 0px 1px black;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.produtoImagem {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.produtoImagem img {
+    margin-top: 15px;
+    width: 200px;
+    height: 150px;
+}
+
+.itensDestaque h1 {
+    font-size: 20px;
+    margin-top: 25px;
+    font-family: verdana;
+    font-weight: 200;
+    margin-left: 25px;
+    margin-bottom: 40px;
+}
+
+.saibaMaisDestaque {
+    background-color: #1a237e;
+    color: #fff;
+    width: 150px;
+    height: 50px;
+    font-family: verdana;
+    box-shadow: 0px 0px 1px 0px black;
+    margin: 0 auto;
+    font-size: 18px;
+    padding-top: 5px;
+    text-align: center;
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.saibaMaisDestaque:hover {
+    width: 151px;
+    height: 51px;
+    background-color: #534bae;
+    transition: all 0.7s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.saibaMaisDestaque:active {
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+#produtosEmPromocao {
+    width: 1100px;
+    min-height: 400px;
+    overflow: hidden;
+    /* background-color: blueviolet; */
+    margin: 0 auto;
+}
+
+.itensPromocao {
+    width: 300px;
+    height: 350px;
+    background-color: #fff;
+    box-shadow: 0 0px 1px black;
+    margin-right: 60px;
+    float: left;
+    margin-bottom: 25px;
+    padding: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.promocaoImagens {
+    width: 175px;
+    height: 125px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.promocaoImagens img {
+    width: inherit;
+    height: inherit;
+}
+
+.itensPromocao h1 {
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 200;
+}
+
+.preco {
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.precoAntigo {
+    color: #1b1b1b;
+    text-decoration: line-through;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    float: left;
+    user-select: none;
+}
+
+.precoNovo {
+    color: #000;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    float: right;
+    font-weight: 200;
+}
+
+#nossasLojas {
+    width: 1100px;
+    min-height: 600px;
+    overflow: hidden;
+    /* background-color: dodgerblue; */
+    margin: 0 auto;
+}
+
+.cardLoja {
+    width: 300px;
+    height: 500px;
+    background-color: #fff;
+    float: left;
+    margin-right: 65px;
+    margin-bottom: 25px;
+    box-shadow: 0px 0px 1px 0px black;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.lojaImg {
+    width: 200px;
+    height: 200px;
+    background-color: #000;
+    margin: 25px auto;
+    border-radius: 150px;
+    box-shadow: 0px 0px 3px 0px black;
+}
+
+.lojaImg img {
+    width: inherit;
+    height: inherit;
+    border-radius: 150px;
+}
+
+.cardLoja ul {
+    /* background-color: skyblue; */
+    height: 150px;
+    width: 200px;
+    margin: 5px auto;
+}
+
+.cardLoja li {
+    /* background-color: cornflowerblue; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+    list-style: none;
+}
+
+#entreEmContato {
+    width: 1100px;
+    min-height: 400px;
+    overflow: hidden;
+    /* background-color: #000; */
+    margin: 0 auto;
+}
+
+#forms {
+    width: 100%;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.campoDePesquisa {
+    width: 1100px;
+    min-height: 100px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    box-shadow: 0 0px 1px black;
+    padding-top: 5px;
+    margin-right: 25px;
+    background-color: #ffffff;
+    padding-left: 15px;
+}
+
+.campoDePesquisa h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+}
+
+.entradaDeDados {
+    width: 100%;
+    height: 60px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 26px;
+    margin-top: 15px;
+}
+
+.entradaDeDados input {
+    width: 1050px;
+    border-radius: 10px;
+    height: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    border: solid black 0px;
+    box-shadow: 0px 0px 1px 1px black;
+    padding-left: 5px;
+}
+
+#mensagem {
+    width: 100%;
+    height: 400px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 26px;
+}
+
+#mensagem input {
+    width: 1050px;
+    border-radius: 10px;
+    height: 350px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    border: solid black 0px;
+    box-shadow: 0px 0px 1px 1px black;
+}
+
+#sexo {
+    width: 1100px;
+    height: 50px;
+    user-select: none;
+    margin-top: 10px;
+}
+
+#sexo input {
+    width: 50px;
+    height: 20px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+#enviar {
+    width: 1100px;
+    height: 100px;
+    user-select: none;
+    margin-top: 10px;
+    /* background-color: aqua; */
+}
+
+#enviar input {
+    width: 1000px;
+    height: 75px;
+    margin-left: 25px;
+    margin-top: 15px;
+    background-color: #1a237e;
+    color: #fff;
+    font-family: verdana;
+    box-shadow: 0px 0px 1px 0px black;
+    font-size: 32px;
+    padding-top: 5px;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#enviar input:hover {
+    background-color: #534bae;
+    transition: all 0.2s;
+    cursor: pointer;
+    user-select: none;
+}
+
+#enviar input:active {
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+footer {
+    width: 100%;
+    min-height: 100px;
+    overflow: auto;
+    background-color: #1a237e;
+}
+
+#footerCaixa {
+    width: 1300px;
+    height: 125px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+#copyright {
+    width: 650px;
+    height: 100px;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+#copyright h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2px;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: center;
+    color: #fff;
+}

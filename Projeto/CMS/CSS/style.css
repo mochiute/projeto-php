@@ -1,0 +1,327 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.ocultar {
+    display: none;
+}
+
+.visualizar {
+    display: block;
+}
+
+#caixaPrincipal {
+    width: 800px;
+    min-height: 700px;
+    overflow: hidden;
+    /* background-color: #000; */
+    border: solid black 2px;
+    border-radius: 50px;
+    margin: 5px auto;
+}
+
+#header {
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 100%;
+    min-height: 150px;
+    border-bottom: solid black 2px;
+    /* background-color: brown; */
+    background-color: #1a237e;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+    color: #ffffff;
+}
+
+.title {
+    width: 400px;
+    height: 50px;
+    margin-top: 30px;
+    /* background-color: #0ff; */
+    float: left;
+}
+
+.title h1 {
+    width: 500px;
+    height: 50px;
+    font-size: 24px;
+    /* background-color: #0ff; */
+    float: left;
+}
+
+.title span {
+    font-size: 18px;
+    font-weight: 200;
+    /* background-color: #0ff; */
+}
+
+#headerImg {
+    width: 200px;
+    height: 100px;
+    /* background-color: #000fff; */
+    float: right;
+    margin-right: 50px;
+    text-align: center;
+}
+
+#headerImg img {
+    width: 150px;
+    height: 100px;
+}
+
+#menu {
+    /* background-color: aqua; */
+    width: 100%;
+    height: 100px;
+    border-bottom: solid black 2px;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #000051;
+    color: #ffffff;
+}
+
+#menuContainer {
+    width: 500px;
+    height: inherit;
+    background-color: beige;
+}
+
+#menu h1 {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+#logout {
+    font-size: 14px;
+    font-weight: 300;
+    float: right;
+    width: 75px;
+    height: 30px;
+    padding-top: 5px;
+    background-color: #1a237e;
+    border-radius: 50px;
+    user-select: none;
+    text-align: center;
+}
+
+#logout:hover {
+    width: 80px;
+    height: 35px;
+    padding-top: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #534bae;
+}
+
+#logout:active {
+    transition: 0.2s;
+    background-color: #ffffff;
+}
+
+.menuItems {
+    float: left;
+    margin-right: 25px;
+    width: 100px;
+    height: 80px;
+    text-align: center;
+}
+
+.menuItems:hover {
+    border: solid 1px black;
+    background-color: #534bae;
+    transition: 0.7s;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.menuItems img {
+    width: 90px;
+    height: 80px;
+}
+
+.menuItems h3 {
+    font-size: 12px;
+    font-weight: 300;
+}
+
+#conteudo {
+    width: 100%;
+    min-height: 400px;
+    overflow: hidden;
+    border-bottom: solid black 2px;
+}
+
+#faleConosco {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    /* opacity: 1;
+    visibility: visible; */
+    /* display: none; */
+}
+
+#faleConosco table {
+    width: 100%;
+    min-height: 100px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+#linha {
+    background-color: #534bae;
+    color: #ffffff;
+}
+
+#faleConosco table tr {
+    width: 100%;
+    height: 100px;
+}
+
+#faleConosco tr td {
+    border: solid black 2px;
+    text-align: center;
+    font-size: 18px;
+    width: 100px;
+}
+
+.icons {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+#admUsuarios {
+    display: none;
+    width: 100%;
+    /* background-color: brown; */
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.camposRegistro {
+    width: inherit;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    padding-top: 10px;
+    margin-bottom: 15px;
+}
+
+.camposRegistro span {
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+.camposRegistro input {
+    width: 650px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    padding-left: 5px;
+    float: left;
+    margin-left: 15px;
+}
+
+.camposRegistro input[type="radio"] {
+    width: 50px;
+    height: 25px;
+}
+
+.camposRegistro input[type="radio"]:hover {
+    border: solid 1px #534bae;
+    cursor: pointer;
+}
+
+.camposRegistro label {
+    width: 200px;
+    height: 40px;
+    /* background-color: #d2d; */
+    display: block;
+    float: left;
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+.camposRegistro div {
+    width: 100px;
+    height: 30px;
+    /* background-color: darkgoldenrod; */
+    float: left;
+}
+
+#admUsuarios h1 {
+    margin-left: 15px;
+    margin-top: 5px;
+    font-weight: 200;
+}
+
+.camposRegistro input[type="submit"] {
+    width: 500px;
+    height: 30px;
+    margin-left: 150px;
+    background-color: #1a237e;
+    color: #ffffff;
+}
+
+.camposRegistro input[type="submit"]:hover {
+    background-color: #534bae;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#usuarios {
+    width: 100%;
+    min-height: 300px;
+    overflow: hidden;
+    background-color: brown;
+}
+
+#usuarios table {
+    width: 100%;
+    min-height: 100px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+#linhaUsuario {
+    background-color: #534bae;
+    color: #ffffff;
+}
+
+#usuarios table tr {
+    width: 100%;
+    height: 100px;
+}
+
+#usuarios tr td {
+    border: solid black 2px;
+    text-align: center;
+    font-size: 18px;
+    width: 100px;
+}
+
+#footer {
+    width: 100%;
+    height: 45px;
+    background-color: #1a237e;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    color: #ffffff;
+}
+
+#footer h1 {
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    padding-top: 10px;
+}
