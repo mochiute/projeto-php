@@ -1,6 +1,7 @@
 <?php
 
 require_once('../modulos/config.php');
+$action = "../bd/inserirUsuario.php";
 
 //import do arquivo de função para conectar no banco de dados
 require_once('../bd/conexaoMysql.php');
@@ -9,7 +10,51 @@ require_once('../bd/conexaoMysql.php');
 if(!$conex = conexaoMysql()){
     echo("<script> alert('".ERRO_CONEX_BD_MYSQL."'); </script>");
     //die; Finaliza a interpretação da página
+
 }
+
+if(isset($_GET['modo'])){
+    //Validação para verificar se o modo é para buscar no banco o registro
+    if(strtoupper($_GET['modo']) == "CONSULTAR"){
+        //Validação para saber se o id foi encaminhado
+        if(isset($_GET['id']) && $_GET['id'] != ""){
+            
+            $id = $_GET['id'];
+
+            //Ativa um recurso para a utilização de variáveis de sessão
+            //Uma variavel de sessão permanece ativa até que o programa destrua ela ou o navegador seja fechado
+            session_start();
+            
+            //Criamos uma variavel chamada id como sendo uma variavel de sessão
+            $_SESSION['id'] = $id;
+
+            $sql = "select * from tblusuarios where idUsuario = ".$id;
+
+                $select = mysqli_query($conex, $sql);
+
+                if($rsUsuario = mysqli_fetch_assoc($select)){
+                    
+                    $nome = $rsUsuario['nome'];
+                    $celular = $rsUsuario['celular'];
+                    $email = $rsUsuario['email'];
+                    $senha = $rsUsuario['senha'];
+                    $telefone = $rsUsuario['telefone'];
+                    //Tratamento da data para converter no padrão brasileiro
+                    $sexo = $rsUsuario['sexo'];
+                    //Validação para ativar o rádio do sexo
+                    if(strtoupper($sexo) == "F")
+                        $chkFeminino = "checked";
+                    elseif(strtoupper($sexo) == "M")
+                        $chkMasculino = "checked";
+                    elseif(strtoupper($sexo) == "O")
+                        $chkOutro = "checked";
+                        
+                    $action = "../bd/atualizarUsuario.php";
+                } 
+        }
+    }
+}
+
 
 ?>
 
@@ -21,9 +66,42 @@ if(!$conex = conexaoMysql()){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <title>CMS</title>
+    <script src="js/jquery.js"></script>
+
+    <script>
+        'use strict';
+
+        $(document).ready(function(){
+            //Function para carregar a Modal
+            $(".pesquisar").click(function(){
+                $("#modalContainer").fadeIn(1000);
+
+            });
+
+        });
+
+        //Function para carregar ou visualizar contato na modal
+        function visualizarUsuario(id) {
+            // alert(id);
+            $.ajax({
+                type: "POST",
+                url: "visualizarUsuario.php",
+                data: {idContato:id},
+                success: function(dados){
+                    $("#modal").html(dados);
+                } 
+            });
+        }
+    </script>
 </head>
 
 <body>
+        <div id="modalContainer">
+            <div id="modal">
+
+            </div>
+        </div>
+
     <div id="caixaPrincipal">
         <div id="header">
             <div class="title">
@@ -52,10 +130,15 @@ if(!$conex = conexaoMysql()){
                 <h3>Adm Usuários</h3>
             </div> -->
             </div>
-            <h1>Bem vindo,[xxxxx xxx]</h1>
-            <h2 id="logout"><a href="../index.php">Logout</a></h2>
+            <div id="options">
+                <h1>Bem vindo,[xxxxx xxx]</h1>
+                <h2 id="logout">
+                    <a href="../index.php">Logout</a>
+                </h2>
+            </div>
         </div>
         <div id="conteudo">
+
             <div id="faleConosco" class="cmsConteudo ocultar">
                 <table>
                     <tr id="linha">
@@ -118,48 +201,48 @@ if(!$conex = conexaoMysql()){
                 ?>
                 </table>
             </div>
-            <div id="admUsuarios" class="cmsConteudo">
+            <div id="admUsuarios" class="cmsConteudo ocultar">
                 <h1>Registro de usuários </h1>
-                <form name="frmRegistro" method="post" action="../bd/inserirUsuario.php">
+                <form name="frmRegistro" method="post" action="<?=$action?>">
                     <div class="camposRegistro">
                         <div>
                             <span>Nome:</span>
                         </div>
-                        <input type="text" name="txtNome" value="" placeholder="Nome">
+                        <input type="text" name="txtNome" value="<?=@$nome?>" placeholder="Nome">
                     </div>
 
                     <div class="camposRegistro">
                          <div>
                             <span>Celular:</span>
                         </div>
-                        <input type="tel" name="telCelular" value="" placeholder="Celular">
+                        <input type="tel" name="telCelular" value="<?=@$celular?>" placeholder="Celular">
                     </div>
                     
                     <div class="camposRegistro">
                          <div>
                             <span>Telefone:</span>
                         </div>
-                        <input type="tel" name="telTelefone" value="" placeholder="Telefone">
+                        <input type="tel" name="telTelefone" value="<?=@$telefone?>" placeholder="Telefone">
                     </div>
 
                     <div class="camposRegistro">
                          <div>
                             <span>Email:</span>
                         </div>
-                        <input type="email" name="emlEmail" value="" placeholder="Email">
+                        <input type="email" name="emlEmail" value="<?=@$email ?>" placeholder="Email">
                     </div>
 
                     <div class="camposRegistro">
                          <div>
                             <span>Senha:</span>
                         </div>
-                        <input type="password" name="pswSenha" value="" placeholder="Senha">
+                        <input type="password" name="pswSenha" value="<?=@$senha ?>" placeholder="Senha">
                     </div>
 
                     <div class="camposRegistro">
-                        <label>Feminino<input type="radio" name="rdoSexo" value="F"></label> 
-                        <label>Masculino<input type="radio" name="rdoSexo" value="M"></label>
-                        <label>Outro<input type="radio" name="rdoSexo" value="O"></label>
+                        <label>Feminino<input type="radio" name="rdoSexo" value="F" <?=@$chkFeminino?>></label> 
+                        <label>Masculino<input type="radio" name="rdoSexo" value="M" <?=@$chkMasculino?>></label>
+                        <label>Outro<input type="radio" name="rdoSexo" value="O" <?=@$chkOutro?>></label>
                     </div>
                     
                     <div class="camposRegistro">
@@ -178,10 +261,7 @@ if(!$conex = conexaoMysql()){
                             </td>
                             <td>
                                 email
-                            </td>
-                            <td>
-                                senha
-                            </td>
+                            </td>                    
                             <td>
                                 status
                             </td>
@@ -196,7 +276,7 @@ if(!$conex = conexaoMysql()){
                                 tblusuarios.nome, 
                                 tblusuarios.celular, 
                                 tblusuarios.email, 
-                                tblusuarios.senha from tblusuarios
+                                tblusuarios.senha,tblusuarios.ativado from tblusuarios
                                 order by tblusuarios.idUsuario desc;
                                 ";
                                 
@@ -218,15 +298,32 @@ if(!$conex = conexaoMysql()){
                                     <?=$rsUsuarios['email'];?>
                                 </td>
                                 <td>
-                                    <?=$rsUsuarios['senha'];?>
-                                </td>
-                                <td>
-                                    desativado
+                                    <?php 
+                                        if($rsUsuarios['ativado'] == 0)
+                                            echo('Desativado');
+                                        else
+                                            echo('Ativado');
+                                    ?>
                                 </td>
                                 <td>
                                     <a href="../bd/excluirUsuario.php?modo=excluir&id=<?=$rsUsuarios['idUsuario']?>" onclick="return confirm('Deseja realmente excluir esse Registro?')">
                                       <img src="../images/deletar.png" alt="Excluir" title="Excluir" class="icons">
                                    </a> 
+                                   <a href="index.php?modo=consultar&id=<?=$rsUsuarios['idUsuario']?>">
+                                      <img src="../images/edit.png" alt="Editar" title="Editar" class="icons">
+                                   </a>
+                                   <a href="../bd/ativarUsuarios.php?modo=ativar&ativado=<?=$rsUsuarios['ativado']?>&id=<?=$rsUsuarios['idUsuario']?>">
+                                        <?php
+                                            if($rsUsuarios['ativado'] == 0){
+                                                $status = "desativar";
+                                            }
+                                            else{
+                                                $status = "ativar";
+                                            }
+                                        ?>
+                                        <img src="../images/<?=@$status?>.png" alt="Desativar" title="Desativar" class="icons">
+                                    </a>
+                                   <img src="../images/search.png" class="icons pesquisar" onclick="visualizarUsuario(<?=$rsUsuarios['idUsuario']?>);"> 
                                 </td>
                             </tr>
                             <?php
@@ -236,8 +333,28 @@ if(!$conex = conexaoMysql()){
                     </table>
                 </div>
             </div>
-            <div class="cmsConteudo" id="produtos"></div>
-            <div class="cmsConteudo" id="conteudo"></div>
+            <div class="cmsConteudo ocultar" id="produtos">
+            </div>
+            <div class="cmsConteudo ocultar" id="admConteudo">
+                <h1 class="mainTitle">Registro de Lojas</h1>
+                <form name="frmRegistroDeLojas" method="post" action="index.php">
+                    <div class="registroNossasLojas">
+                        <div>Digite o nome da Cidade:</div>
+                        <input type="text" name="txtNomeCidade" value="" placeholder="Cidade">
+                    </div>
+                    <div class="registroNossasLojas">
+                        <div>Digite o endereço:</div>
+                        <input type="text" name="txtEndereco" value="" placeholder="Endereço">
+                    </div>
+                    <div class="registroNossasLojas">
+                        <div>Digite o telefone:</div>
+                        <input type="text" name="telTelefone" value="" placeholder="Telefone">
+                    </div>
+                    <div class="registroNossasLojas">
+                        <input type="submit" name="btnRegistrar" value="Registrar">
+                    </div>
+                </form>
+            </div>
         </div>
         <div id="footer">
             <h1>Desenvolvido por xxxxxxx xxxxxxxxx</h1>

@@ -32,14 +32,15 @@ $senha = $_POST['pswSenha'];
 
 
 $sql = "insert into tblusuarios 
-        (nome, celular, telefone, email, sexo, senha)
+        (nome, celular, telefone, email, sexo, senha, ativado)
             values(
                 '".$nome."',
                 '".$celular."', 
                 '".$telefone."', 
                 '".$email."',
                 '".$sexo."', 
-                '".$senha."'
+                '".$senha."',
+                0
             );
         ";
 

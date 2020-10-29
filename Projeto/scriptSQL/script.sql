@@ -18,7 +18,6 @@ create table tblcontatos (
     profissao varchar(50) not null
 );
 select * from tblcontatos;
-select * from tblusuarios;
 
 select tblcontatos.idContato,tblcontatos.nome, tblcontatos.celular, tblcontatos.email, tblcontatos.mensagem from tblcontatos order by tblcontatos.idContato desc;
 
@@ -35,12 +34,79 @@ create table tblusuarios (
     senha varchar(30) not null
 );
 
+ALTER TABLE tblusuarios
+ADD  ativado boolean not null;
+
 insert into tblusuarios (nome, celular, telefone, email, sexo, senha)
 values('Primeiro usuario','(11)99999-9999', '4635-5454', 'primeirousuario@hotmail.com','M', '123456');
+
+update tblusuarios set 
+        nome = 'Marquito',
+        celular = '(11)99999-9999',
+        email = 'primeirousuario@hotmail.com',
+        sexo = 'M',
+        senha = 'testinho',
+        telefone = '12345'
+
+        where idUsuario = 5;
+
+insert into tblusuarios (nome, celular, telefone, email, sexo, senha, ativado)
+values('Primeiro usuario','(11)99999-9999', '4635-5454', 'primeirousuario@hotmail.com','M', '123456', 1);
 
 select tblusuarios.idUsuario,
                                 tblusuarios.nome, 
                                 tblusuarios.celular, 
                                 tblusuarios.email, 
-                                tblusuarios.senha from tblusuarios
+                                tblusuarios.senha,tblusuarios.ativado from tblusuarios
                                 order by tblusuarios.idUsuario desc;
+                                                                
+select * from tblusuarios where idUsuario = 5;
+
+update tblusuarios set 
+        ativado = 1 
+        where idUsuario = 8;
+
+select tblusuarios.ativado from tblusuarios where idUsuario = 8;
+
+update tblusuarios set 
+        ativado = 0 where idUsuario = 8;
+        
+
+create table tblcategoria(
+	idCategoria int not null primary key auto_increment, 
+    nome varchar(60) not null
+);
+
+insert into tblcategoria(nome) values ('Computadores');
+
+create table tblsubcategoria(
+	idSubcategoria int not null primary key auto_increment,
+    nome varchar(60) not null,
+    constraint FK_Categoria_Subcategoria 
+    foreign key (idCategoria) 
+    references tblcategoria(idCategoria)
+);
+
+select * from tblcategoria;
+desc tblcategoria;
+
+create table tblNossasLojas (
+	idNossaLoja int not null primary key auto_increment,
+    nome varchar(60) not null,
+    telefone varchar(20) not null,
+    endereco varchar(100) not null
+);
+
+insert into tblNossasLojas 
+(nome, telefone, endereco) 
+values(
+	'Barueri',
+    '5555-5555',
+    'Rua ali atrás no bairro são joão'
+);
+
+select * from tblNossasLojas;
+
+ALTER TABLE tblNossasLojas
+ADD  ativado boolean not null;
+

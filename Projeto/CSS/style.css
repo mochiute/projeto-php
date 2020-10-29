@@ -126,9 +126,22 @@ nav {
 .campos input {
     width: inherit;
     height: 35px;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: solid 2px #534bae;
     font-family: verdana;
     font-size: 18px;
-    border-radius: 5px;
+    color: #ffffff;
+    transition: all 0.3s;
+    /* border-radius: 5px; */
+    padding: 0 5px;
+}
+
+.campos input:focus {
+    border: solid 2px #000051;
+    border-radius: 25px;
+    /* border-radius: 5px; */
 }
 
 #btnLogin {
@@ -139,7 +152,9 @@ nav {
     font-family: verdana;
     color: #ffffff;
     background-color: #000051;
-    border: solid #000051 1px;
+    border: solid #000051 2px;
+    transition: all 0.5s;
+    border-radius: 25px;
 }
 
 #btnLogin:hover {
@@ -147,7 +162,7 @@ nav {
     background-color: #534bae;
     border: solid #534bae 1px;
     cursor: pointer;
-    transition: all 0.5s;
+    border: solid #1a237e 3px;
 }
 
 .conteudo {
@@ -239,12 +254,12 @@ nav {
     margin-top: 15px;
     text-align: center;
     padding-top: 5px;
+    transition: all 0.5s;
 }
 
 #redeSociais div:hover {
     background-color: #534bae;
     border-radius: 50px;
-    transition: all 0.5s;
     cursor: pointer;
 }
 
@@ -324,36 +339,38 @@ nav {
 
 #caixaBarraPesquisa {
     width: 100%;
-    height: 60px;
+    height: 30px;
     margin-top: 15px;
     font-family: verdana;
 }
 
 #caixaItens input[type="text"] {
     width: 450px;
-    height: 50px;
+    height: 30px;
     font-size: 28px;
     border: #000 solid 0px;
     box-shadow: 0px 0px 1px 0px black;
+    border-radius: 25px;
+    outline: none;
+    padding: 0 15px;
 }
 
 #caixaItens input[type="submit"] {
     width: 100px;
     height: 40px;
     background-color: #1a237e;
-    color: #ffffff;
-    box-shadow: 0px 0px 1px 0px black;
     font-size: 18px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
+    background: none;
+    border: solid 2px #1a237e;
+    border-radius: 25px;
+    transition: all 0.2s;
 }
 
 #caixaItens input[type="submit"]:hover {
-    width: 101px;
-    height: 41px;
     background-color: #534bae;
-    transition: all 0.2s;
+    border: solid 2px #1a237e;
     cursor: pointer;
+    color: #ffffff;
 }
 
 #itensEncontrados {
@@ -407,27 +424,28 @@ nav {
 }
 
 .saibaMais {
-    background-color: #1a237e;
-    color: #fff;
+    background-color: none;
+    border: solid 2px #1a237e;
+    /* color: #fff; */
     width: 125px;
     height: 40px;
     font-family: verdana;
-    box-shadow: 1px 1px 1px 0px black;
+    /* box-shadow: 1px 1px 1px 0px black; */
     margin: 0 auto;
     font-size: 18px;
     padding-top: 5px;
     margin-top: 5px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 25px;
+    transition: all 0.2s;
+    display: block;
 }
 
 .saibaMais:hover {
-    width: 126px;
-    height: 41px;
+    width: 130px;
     background-color: #534bae;
-    transition: all 0.2s;
     cursor: pointer;
     user-select: none;
+    color: #ffffff;
 }
 
 .saibaMais:active {
@@ -495,10 +513,12 @@ nav {
 }
 
 .saibaMaisDestaque {
-    background-color: #1a237e;
-    color: #fff;
+    background-color: none;
+    border: solid 2px #000051;
+    /* color: #fff; */
     width: 150px;
     height: 50px;
+    display: block;
     font-family: verdana;
     box-shadow: 0px 0px 1px 0px black;
     margin: 0 auto;
@@ -506,17 +526,17 @@ nav {
     padding-top: 5px;
     text-align: center;
     padding: 10px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 25px;
+    transition: all 0.3s;
 }
 
 .saibaMaisDestaque:hover {
-    width: 151px;
-    height: 51px;
+    width: 160px;
+    height: 50px;
     background-color: #534bae;
-    transition: all 0.7s;
     cursor: pointer;
     user-select: none;
+    color: #ffffff;
 }
 
 .saibaMaisDestaque:active {
@@ -577,6 +597,7 @@ nav {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     float: left;
     user-select: none;
+    font-weight: 500;
 }
 
 .precoNovo {
@@ -680,12 +701,13 @@ nav {
 
 .entradaDeDados input {
     width: 1050px;
-    border-radius: 10px;
     height: 50px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 24px;
-    border: solid black 0px;
-    box-shadow: 0px 0px 1px 1px black;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: solid 2px #000051;
     padding-left: 5px;
 }
 
@@ -733,22 +755,24 @@ nav {
     height: 75px;
     margin-left: 25px;
     margin-top: 15px;
-    background-color: #1a237e;
-    color: #fff;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: solid 2px #000051;
     font-family: verdana;
-    box-shadow: 0px 0px 1px 0px black;
     font-size: 32px;
     padding-top: 5px;
     text-align: center;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
+    transition: all 0.2s;
 }
 
 #enviar input:hover {
     background-color: #534bae;
-    transition: all 0.2s;
     cursor: pointer;
     user-select: none;
+    border: solid 3px #000051;
+    color: #ffffff;
+    border-radius: 25px;
 }
 
 #enviar input:active {

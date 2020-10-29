@@ -10,6 +10,18 @@ a {
     color: #ffffff;
 }
 
+.mainTitle {
+    font-size: 26px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 15px;
+    font-weight: 100;
+    border-bottom: solid 1px #000051;
+    user-select: none;
+    width: fit-content;
+    height: 30px;
+    margin-bottom: 25px;
+}
+
 .ocultar {
     display: none;
 }
@@ -93,7 +105,15 @@ a {
 #menuContainer {
     width: 500px;
     height: inherit;
-    background-color: beige;
+    float: left;
+    /* background-color: beige; */
+}
+
+#options {
+    float: left;
+    width: 200px;
+    height: inherit;
+    /* background-color: cyan; */
 }
 
 #menu h1 {
@@ -135,19 +155,32 @@ a {
     width: 100px;
     height: 80px;
     text-align: center;
+    user-select: none;
+    transition: 0.7s;
+    display: block;
 }
+
+
+/* .cmsConteudo {
+    
+} */
 
 .menuItems:hover {
     border: solid 1px black;
     background-color: #534bae;
-    transition: 0.7s;
     cursor: pointer;
     border-radius: 50px;
+}
+
+.menuItems:active {
+    background-color: #ffffff;
+    transition: 0.2s;
 }
 
 .menuItems img {
     width: 90px;
     height: 80px;
+    user-select: none;
 }
 
 .menuItems h3 {
@@ -160,6 +193,7 @@ a {
     min-height: 400px;
     overflow: hidden;
     border-bottom: solid black 2px;
+    transition: all 0.5s;
 }
 
 #faleConosco {
@@ -180,7 +214,7 @@ a {
 
 #linha {
     background-color: #534bae;
-    color: #ffffff;
+    color: #523131;
 }
 
 #faleConosco table tr {
@@ -196,13 +230,13 @@ a {
 }
 
 .icons {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
 #admUsuarios {
-    display: none;
+    /* display: none; */
     width: 100%;
     /* background-color: brown; */
     min-height: 500px;
@@ -220,16 +254,29 @@ a {
 .camposRegistro span {
     font-size: 18px;
     margin-left: 15px;
+    border-bottom: solid 2px #000051;
+    height: 30px;
 }
 
 .camposRegistro input {
-    width: 650px;
+    width: 600px;
     height: 30px;
     font-size: 18px;
     border-radius: 5px;
     padding-left: 5px;
     float: left;
     margin-left: 15px;
+    background-color: none;
+    border: none;
+    border-bottom: solid 2px #000051;
+    transition: all 0.3s;
+    outline: none;
+    display: block;
+}
+
+.camposRegistro input:focus {
+    border: solid 3px #534bae;
+    width: 650px;
 }
 
 .camposRegistro input[type="radio"] {
@@ -281,16 +328,17 @@ a {
 
 #usuarios {
     width: 100%;
-    min-height: 300px;
+    min-height: 100px;
     overflow: hidden;
-    background-color: brown;
+    /* background-color: brown; */
 }
 
 #usuarios table {
     width: 100%;
-    min-height: 100px;
+    min-height: 400px;
     overflow: hidden;
     background-color: #fff;
+    text-align: center;
 }
 
 #linhaUsuario {
@@ -305,9 +353,69 @@ a {
 
 #usuarios tr td {
     border: solid black 2px;
+    /* text-align: center; */
+    padding-left: 5px;
+    width: 150px;
+    font-size: 16px;
+}
+
+.registroNossasLojas {
+    width: 700px;
+    height: 50px;
+    /* background-color: #1a237e; */
+    margin: 0 auto;
     text-align: center;
+}
+
+.registroNossasLojas div {
+    width: 300px;
+    height: 30px;
+    /* background-color: #534bae; */
+    margin: 0 auto;
+    float: left;
+    border-bottom: solid 2px #000051;
+    margin-right: 15px;
+}
+
+.registroNossasLojas input[type="text"],
+.registroNossasLojas input[type="tel"] {
+    width: 350px;
+    height: 30px;
+    float: left;
+    border: none;
+    border-bottom: solid 2px #000051;
+    outline: none;
     font-size: 18px;
-    width: 100px;
+    transition: all 0.2s;
+    padding-left: 5px;
+    display: block;
+}
+
+.registroNossasLojas input[type="text"]:focus,
+.registroNossasLojas input[type="tel"]:focus {
+    border: solid 3px #000051;
+    border-radius: 25px;
+}
+
+.registroNossasLojas input[type="submit"] {
+    width: 300px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-bottom: solid 2px #000051;
+    transition: all 0.2s;
+    display: block;
+    margin: 0 auto;
+    font-size: 18px;
+    border-radius: 15px;
+}
+
+.registroNossasLojas input[type="submit"]:hover {
+    background-color: #1a237e;
+    color: #ffffff;
+    border-bottom: solid 3px #000051;
+    cursor: pointer;
+    width: 325px;
 }
 
 #footer {
@@ -324,4 +432,57 @@ a {
     font-weight: 300;
     text-align: center;
     padding-top: 10px;
+}
+
+#modalContainer {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 999;
+    display: none;
+}
+
+#modal {
+    width: 800px;
+    height: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 8px 0px;
+}
+
+#visualizarUsuarios {
+    width: 800px;
+    height: 500px;
+    padding-left: 25px;
+}
+
+.linhaDiv {
+    width: 100%;
+    height: 30px;
+}
+
+.linhaDiv div {
+    width: 375px;
+    height: 30px;
+    float: left;
+    border: solid 2px #000051;
+}
+
+#fecharModal {
+    margin-left: 700px;
+    margin-bottom: 10px;
+    user-select: none;
+}
+
+#fecharModal:hover {
+    color: darkslateblue;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#fecharModal:active {
+    color: #ffffff;
+    transition: all 0.1s;
 }
